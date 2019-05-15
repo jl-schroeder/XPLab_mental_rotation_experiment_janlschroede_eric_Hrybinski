@@ -26,12 +26,12 @@ const intro = babeViews.intro({
     text:   `Introduction to the experiment.
             <br />
             <br />
-            This is an experiment for the Experimental-Psychology-Lab-Course at the University of Osnabrück.
+            This is an experiment for the Experimental-Psychology-Lab Course at the University of Osnabrück.
             <br />
             In this experiment you will have to judge, if two objects are the same object, just rotated, or in fact are a different object.
             <br />
             <br />
-            This is a minimal experiment with `+num_of_trials+` key press tasks about the departure point data.`,
+            This is a minimal experiment with `+num_of_trials+` key press tasks about the mental-rotation data.`,
    buttonText: 'Begin the experiment'
 });
 
