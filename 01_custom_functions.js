@@ -12,11 +12,6 @@ const rotation = ["50","150"];
 const same_or_different = ["same","different"];
 var num_of_trials = 5;
 var trial_array = [];
-// create an array with a random number of the picture, a random rotation of an object and if the object are the same or different.
-// This gets created for the specific number of trials
-
-
-//var file_name = numb+"_"+rotation+"_"+same_or_different+".jpg";
 
 /* Helper functions
 *
