@@ -19,7 +19,7 @@
 */
 
 // Every experiment should start with an intro view. Here you can welcome your participants and tell them what the experiment is about
-const intro = babeViews.intro({
+const intro = babeViews.view_generator('intro',{
     trials: 1,
     name: 'intro',
     // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
@@ -36,7 +36,7 @@ const intro = babeViews.intro({
 });
 
 // For most tasks, you need instructions views
-const instructions = babeViews.instructions({
+const instructions = babeViews.view_generator('instructions',{
     trials: 1,
     name: 'instrucions',
     title: 'General Instructions for the experiment',
@@ -49,7 +49,7 @@ const instructions = babeViews.instructions({
 
 
 // In the post test questionnaire you can ask your participants addtional questions
-const post_test = babeViews.postTest({
+const post_test = babeViews.view_generator('post_test',{
     trials: 1,
     name: 'post_test',
     title: 'Additional information',
@@ -71,9 +71,25 @@ const post_test = babeViews.postTest({
     // comments_question: 'Weitere Kommentare'
 });
 
+const practice_start = babeViews.view_generator('instructions',{
+  trials: 1,
+  name: 'practice_start',
+  title: 'Start of practice session',
+  text: 'The following trials are for your practice only. The trials will not count towards the result.',
+  buttonText: 'Start practice trials'
+});
+
+const practice_end = babeViews.view_generator('instructions',{
+  trials: 1,
+  name: 'practice_end',
+  title: 'End of practice session',
+  text: 'You made it through the practice session (Yay!). Now its time for the real fun to begin... ',
+  buttonText: 'Start trials'
+});
+
 // The 'thanks' view is crucial; never delete it; it submits the results!
-const thanks = babeViews.thanks({
-    trials: num_of_trials,
+const thanks = babeViews.view_generator('thanks',{
+    trials: 1,
     name: 'thanks',
     title: 'Thank you for taking part in this experiment!',
     prolificConfirmText: 'Press the button'
@@ -103,7 +119,7 @@ const thanks = babeViews.thanks({
 
 
 // Here, we initialize a forcedChoice view
-const forced_choice_2A = babeViews.forcedChoice({
+const forced_choice_2A = babeViews.view_generator('forced_choice',{
     // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
     trials: trial_info.forced_choice.length,
     // name and trial_type should be identical to the variable name
@@ -112,12 +128,26 @@ const forced_choice_2A = babeViews.forcedChoice({
     data: trial_info.forced_choice
 });
 
-const keyPress_5A = babeViews.keyPress({
-	trials: num_of_trials,
-	name: 'keyPress_5A',
-	trial_type: 'keyPress_5A',
-	data: trial_info.keyPress
-})
+const keyPress_main = babeViews.view_generator('key_press',{
+	trials: trial_array_main.length,
+	name: 'keyPress_main',
+	trial_type: 'keyPress_main',
+	data: trial_info.keyPress_main,
+  //pause:1000,
+  //fix_duration:500
+});
+
+const keyPress_practice = babeViews.view_generator('key_press',{
+	trials: trial_array_practice.length,
+	name: 'keyPress_practice',
+	trial_type: 'keyPress_practice',
+	data: trial_info.keyPress_practice,
+  //pause:1000,
+  //fix_duration:500,
+  hook: {
+    after_response_enabled: check_response
+  }
+});
 
 // There are many more templates available:
 // forcedChoice, sliderRating, dropdownChoice, testboxInput, ratingScale, imageSelection, sentenceChoice, keyPress, selfPacedReading and selfPacedReading_ratingScale

@@ -7,14 +7,19 @@ const trial_info = {
             question: "What's on the bread?",
             picture: "images/question_mark_02.png",
             option1: 'jam',
-            option2: 'ham'
+            option2: 'ham',
+            correct: 'jam'
         },
         {
             question: "What's the weather like?",
             picture: "images/weather.jpg",
             option1: "shiny",
-            option2: "rainbow"
+            option2: "rainbow",
+            correct: "shiny"
         }
     ],
-	keyPress: trial_array
+    
+	keyPress_main: trial_array_main,
+
+  keyPress_practice: trial_array_practice
 };
