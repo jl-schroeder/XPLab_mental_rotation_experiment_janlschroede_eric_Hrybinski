@@ -14,30 +14,6 @@ var num_of_trials = 60;
 var num_of_practice_trials = 12;
 var trial_array_main = [];
 var trial_array_practice = [];
-// create an array with a random number of the picture, a random rotation of an object and if the object are the same or different.
-// This gets created for the specific number of trials
-
-
-//var file_name = numb+"_"+rotation+"_"+same_or_different+".jpg";
-
-/* Helper functions
-*
-*
-*/
-
-/* For generating random participant IDs */
-    // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-// dec2hex :: Integer -> String
-const dec2hex = function(dec) {
-    return ("0" + dec.toString(16)).substr(-2);
-};
-// generateId :: Integer -> String
-const generateID = function(len) {
-    let arr = new Uint8Array((len || 40) /2);
-    window.crypto.getRandomValues(arr);
-    return Array.from(arr, this.dec2hex).join("");
-};
-// Declare your helper functions here
 
 // This function saves the Objcet of a KeyPress task in an array with random generated picture names
 for(var i=0; i < numb.length; i++){
@@ -75,6 +51,26 @@ for(var i=0; i < numb.length; i++){
 };
 trial_array_main = _.shuffle(trial_array_main);
 trial_array_practice = _.shuffle(trial_array_practice);
+
+/* Helper functions
+*
+*
+*/
+
+/* For generating random participant IDs */
+    // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+// dec2hex :: Integer -> String
+const dec2hex = function(dec) {
+    return ("0" + dec.toString(16)).substr(-2);
+};
+// generateId :: Integer -> String
+const generateID = function(len) {
+    let arr = new Uint8Array((len || 40) /2);
+    window.crypto.getRandomValues(arr);
+    return Array.from(arr, this.dec2hex).join("");
+};
+// Declare your helper functions here
+
 
 
 /* Hooks
