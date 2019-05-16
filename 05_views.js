@@ -133,8 +133,8 @@ const keyPress_main = babeViews.view_generator('key_press',{
 	name: 'keyPress_main',
 	trial_type: 'keyPress_main',
 	data: trial_info.keyPress_main,
-  //pause:1000,
-  //fix_duration:500
+  pause:1000,
+  fix_duration:500
 });
 
 const keyPress_practice = babeViews.view_generator('key_press',{
@@ -142,8 +142,8 @@ const keyPress_practice = babeViews.view_generator('key_press',{
 	name: 'keyPress_practice',
 	trial_type: 'keyPress_practice',
 	data: trial_info.keyPress_practice,
-  //pause:1000,
-  //fix_duration:500,
+  pause:1000,
+  fix_duration:500,
   hook: {
     after_response_enabled: check_response
   }
